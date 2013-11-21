@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SoaDemo.Data.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SoaDemoDataStoreContainer" />
+        <Function Name="uspCogs_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCogs_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspCogs_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspCogs_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSprockets_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSprockets_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSprockets_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSprockets_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspWidgets_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspWidgets_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspWidgets_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspWidgets_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="LastUpdatedDate" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SoaDemo.Data" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SoaDemoEntities" p1:LazyLoadingEnabled="true" >
+          <FunctionImport Name="uspCogs_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspCogs_Get" EntitySet="Cogs" ReturnType="Collection(SoaDemo.Data.Cog)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspCogs_Insert">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspCogs_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSprockets_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSprockets_Get" EntitySet="Sprockets" ReturnType="Collection(SoaDemo.Data.Sprocket)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSprockets_Insert">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSprockets_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspWidgets_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspWidgets_Get" EntitySet="Widgets" ReturnType="Collection(SoaDemo.Data.Widget)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspWidgets_Insert">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="LastUpdatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspWidgets_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="LastUpdatedDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="Cogs" EntityType="SoaDemo.Data.Cog" />
+          <EntitySet Name="Sprockets" EntityType="SoaDemo.Data.Sprocket" />
+          <EntitySet Name="Widgets" EntityType="SoaDemo.Data.Widget" />
+        </EntityContainer>
+        <EntityType Name="Cog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sprocket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Widget">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="LastUpdatedDate" Nullable="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SoaDemoDataStoreContainer" CdmEntityContainer="SoaDemoEntities" >
+          <FunctionImportMapping FunctionImportName="uspCogs_Delete" FunctionName="SoaDemo.Data.Store.uspCogs_Delete" />
+          <FunctionImportMapping FunctionImportName="uspCogs_Get" FunctionName="SoaDemo.Data.Store.uspCogs_Get">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspCogs_Insert" FunctionName="SoaDemo.Data.Store.uspCogs_Insert" />
+          <FunctionImportMapping FunctionImportName="uspCogs_Update" FunctionName="SoaDemo.Data.Store.uspCogs_Update" />
+          <FunctionImportMapping FunctionImportName="uspSprockets_Delete" FunctionName="SoaDemo.Data.Store.uspSprockets_Delete" />
+          <FunctionImportMapping FunctionImportName="uspSprockets_Get" FunctionName="SoaDemo.Data.Store.uspSprockets_Get">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSprockets_Insert" FunctionName="SoaDemo.Data.Store.uspSprockets_Insert" />
+          <FunctionImportMapping FunctionImportName="uspSprockets_Update" FunctionName="SoaDemo.Data.Store.uspSprockets_Update" />
+          <FunctionImportMapping FunctionImportName="uspWidgets_Delete" FunctionName="SoaDemo.Data.Store.uspWidgets_Delete" />
+          <FunctionImportMapping FunctionImportName="uspWidgets_Get" FunctionName="SoaDemo.Data.Store.uspWidgets_Get">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspWidgets_Insert" FunctionName="SoaDemo.Data.Store.uspWidgets_Insert" />
+          <FunctionImportMapping FunctionImportName="uspWidgets_Update" FunctionName="SoaDemo.Data.Store.uspWidgets_Update" />
+          <EntitySetMapping Name="Cogs">
+            <EntityTypeMapping TypeName="SoaDemo.Data.Cog">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="SoaDemo.Data.Store.uspCogs_Insert">
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="Id" ColumnName="Id" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="SoaDemo.Data.Store.uspCogs_Update">
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="SoaDemo.Data.Store.uspCogs_Delete">
+                  <ScalarProperty Name="Id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sprockets">
+            <EntityTypeMapping TypeName="SoaDemo.Data.Sprocket">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="SoaDemo.Data.Store.uspSprockets_Insert">
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="Id" ColumnName="Id" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="SoaDemo.Data.Store.uspSprockets_Update">
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="SoaDemo.Data.Store.uspSprockets_Delete">
+                  <ScalarProperty Name="Id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Widgets">
+            <EntityTypeMapping TypeName="SoaDemo.Data.Widget">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="SoaDemo.Data.Store.uspWidgets_Insert">
+                  <ScalarProperty Name="LastUpdatedDate" ParameterName="LastUpdatedDate" />
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="Id" ColumnName="Id" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="SoaDemo.Data.Store.uspWidgets_Update">
+                  <ScalarProperty Name="LastUpdatedDate" ParameterName="LastUpdatedDate" Version="Current" />
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="SoaDemo.Data.Store.uspWidgets_Delete">
+                  <ScalarProperty Name="Id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
