@@ -61,10 +61,10 @@
           <FunctionImport Name="uspCogs_Delete">
             <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="uspCogs_Get" EntitySet="Cogs" ReturnType="Collection(SoaDemo.Data.Cog)">
+          <FunctionImport Name="uspCogs_Get" ReturnType="Collection(SoaDemo.Data.Cog)">
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="uspCogs_Insert">
+          <FunctionImport Name="uspCogs_Insert" ReturnType="Collection(Decimal)">
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Description" Mode="In" Type="String" />
           </FunctionImport>
@@ -76,10 +76,10 @@
           <FunctionImport Name="uspSprockets_Delete">
             <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="uspSprockets_Get" EntitySet="Sprockets" ReturnType="Collection(SoaDemo.Data.Sprocket)">
+          <FunctionImport Name="uspSprockets_Get" ReturnType="Collection(SoaDemo.Data.Sprocket)">
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="uspSprockets_Insert">
+          <FunctionImport Name="uspSprockets_Insert" ReturnType="Collection(Decimal)">
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Description" Mode="In" Type="String" />
           </FunctionImport>
@@ -91,10 +91,10 @@
           <FunctionImport Name="uspWidgets_Delete">
             <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="uspWidgets_Get" EntitySet="Widgets" ReturnType="Collection(SoaDemo.Data.Widget)">
+          <FunctionImport Name="uspWidgets_Get" ReturnType="Collection(SoaDemo.Data.Widget)">
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="uspWidgets_Insert">
+          <FunctionImport Name="uspWidgets_Insert" ReturnType="Collection(Decimal)">
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Description" Mode="In" Type="String" />
             <Parameter Name="LastUpdatedDate" Mode="In" Type="DateTime" />
@@ -105,35 +105,24 @@
             <Parameter Name="Description" Mode="In" Type="String" />
             <Parameter Name="LastUpdatedDate" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <EntitySet Name="Cogs" EntityType="SoaDemo.Data.Cog" />
-          <EntitySet Name="Sprockets" EntityType="SoaDemo.Data.Sprocket" />
-          <EntitySet Name="Widgets" EntityType="SoaDemo.Data.Widget" />
         </EntityContainer>
-        <EntityType Name="Cog">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        <ComplexType Name="Cog">
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Sprocket">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProgramCodes" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Sprocket">
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Widget">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </ComplexType>
+        <ComplexType Name="Widget">
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="LastUpdatedDate" Nullable="true" />
-        </EntityType>
+          <Property Type="DateTime" Name="LastUpdatedDate" Nullable="true" Precision="23" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -142,78 +131,42 @@
         <EntityContainerMapping StorageEntityContainer="SoaDemoDataStoreContainer" CdmEntityContainer="SoaDemoEntities" >
           <FunctionImportMapping FunctionImportName="uspCogs_Delete" FunctionName="SoaDemo.Data.Store.uspCogs_Delete" />
           <FunctionImportMapping FunctionImportName="uspCogs_Get" FunctionName="SoaDemo.Data.Store.uspCogs_Get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SoaDemo.Data.Cog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProgramCodes" ColumnName="ProgramCodes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspCogs_Insert" FunctionName="SoaDemo.Data.Store.uspCogs_Insert" />
           <FunctionImportMapping FunctionImportName="uspCogs_Update" FunctionName="SoaDemo.Data.Store.uspCogs_Update" />
           <FunctionImportMapping FunctionImportName="uspSprockets_Delete" FunctionName="SoaDemo.Data.Store.uspSprockets_Delete" />
           <FunctionImportMapping FunctionImportName="uspSprockets_Get" FunctionName="SoaDemo.Data.Store.uspSprockets_Get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SoaDemo.Data.Sprocket">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspSprockets_Insert" FunctionName="SoaDemo.Data.Store.uspSprockets_Insert" />
           <FunctionImportMapping FunctionImportName="uspSprockets_Update" FunctionName="SoaDemo.Data.Store.uspSprockets_Update" />
           <FunctionImportMapping FunctionImportName="uspWidgets_Delete" FunctionName="SoaDemo.Data.Store.uspWidgets_Delete" />
           <FunctionImportMapping FunctionImportName="uspWidgets_Get" FunctionName="SoaDemo.Data.Store.uspWidgets_Get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SoaDemo.Data.Widget">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspWidgets_Insert" FunctionName="SoaDemo.Data.Store.uspWidgets_Insert" />
           <FunctionImportMapping FunctionImportName="uspWidgets_Update" FunctionName="SoaDemo.Data.Store.uspWidgets_Update" />
-          <EntitySetMapping Name="Cogs">
-            <EntityTypeMapping TypeName="SoaDemo.Data.Cog">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="SoaDemo.Data.Store.uspCogs_Insert">
-                  <ScalarProperty Name="Description" ParameterName="Description" />
-                  <ScalarProperty Name="Name" ParameterName="Name" />
-                  <ResultBinding Name="Id" ColumnName="Id" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="SoaDemo.Data.Store.uspCogs_Update">
-                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
-                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
-                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="SoaDemo.Data.Store.uspCogs_Delete">
-                  <ScalarProperty Name="Id" ParameterName="Id" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sprockets">
-            <EntityTypeMapping TypeName="SoaDemo.Data.Sprocket">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="SoaDemo.Data.Store.uspSprockets_Insert">
-                  <ScalarProperty Name="Description" ParameterName="Description" />
-                  <ScalarProperty Name="Name" ParameterName="Name" />
-                  <ResultBinding Name="Id" ColumnName="Id" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="SoaDemo.Data.Store.uspSprockets_Update">
-                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
-                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
-                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="SoaDemo.Data.Store.uspSprockets_Delete">
-                  <ScalarProperty Name="Id" ParameterName="Id" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Widgets">
-            <EntityTypeMapping TypeName="SoaDemo.Data.Widget">
-              <ModificationFunctionMapping>
-                <InsertFunction FunctionName="SoaDemo.Data.Store.uspWidgets_Insert">
-                  <ScalarProperty Name="LastUpdatedDate" ParameterName="LastUpdatedDate" />
-                  <ScalarProperty Name="Description" ParameterName="Description" />
-                  <ScalarProperty Name="Name" ParameterName="Name" />
-                  <ResultBinding Name="Id" ColumnName="Id" />
-                </InsertFunction>
-                <UpdateFunction FunctionName="SoaDemo.Data.Store.uspWidgets_Update">
-                  <ScalarProperty Name="LastUpdatedDate" ParameterName="LastUpdatedDate" Version="Current" />
-                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
-                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
-                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="SoaDemo.Data.Store.uspWidgets_Delete">
-                  <ScalarProperty Name="Id" ParameterName="Id" />
-                </DeleteFunction>
-              </ModificationFunctionMapping>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

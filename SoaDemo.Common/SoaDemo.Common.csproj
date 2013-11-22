@@ -46,9 +46,9 @@
       <DependentUpon>SoaDemoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\SoaDemoModel.cs">
-      <DependentUpon>SoaDemoModel.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>SoaDemoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Sprocket.cs">
       <DependentUpon>SoaDemoModel.tt</DependentUpon>

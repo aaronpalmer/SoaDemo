@@ -10,17 +10,19 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
+use [SoaDemo.Database]
+
 truncate table Cogs
-insert into Cogs ([Name], [Description]) values ('Name 1','Description 1')
-insert into Cogs ([Name], [Description]) values ('Name 2','Description 2')
-insert into Cogs ([Name], [Description]) values ('Name 3','Description 3')
-insert into Cogs ([Name], [Description]) values ('Name 4','Description 4')
-insert into Cogs ([Name], [Description]) values ('Name 5','Description 5')
-insert into Cogs ([Name], [Description]) values ('Name 6','Description 6')
-insert into Cogs ([Name], [Description]) values ('Name 7','Description 7')
-insert into Cogs ([Name], [Description]) values ('Name 8','Description 8')
-insert into Cogs ([Name], [Description]) values ('Name 9','Description 9')
-insert into Cogs ([Name], [Description]) values ('Name 10','Description 10')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 1','Description 1', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 2','Description 2', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 3','Description 3', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 4','Description 4', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 5','Description 5', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 6','Description 6', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 7','Description 7', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 8','Description 8', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 9','Description 9', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
+insert into Cogs ([Name], [Description], [ProgramCodes]) values ('Name 10','Description 10', '<ProgramCodes><Code>1</Code><Code>2</Code><Code>3</Code></ProgramCodes>')
 
 truncate table Widgets
 insert into Widgets ([Name], [Description]) values ('Name 1','Description 1')

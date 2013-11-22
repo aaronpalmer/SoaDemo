@@ -15,7 +15,7 @@ namespace SoaDemo.Data
     using System.Data.Objects;
     using System.Data.Objects.DataClasses;
     using System.Linq;
-    using SoaDemo.Business.Entities;
+    using SoaDemo.Common.Entities;
     
     public partial class SoaDemoEntities : DbContext
     {
@@ -29,9 +29,6 @@ namespace SoaDemo.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Cog> Cogs { get; set; }
-        public DbSet<Sprocket> Sprockets { get; set; }
-        public DbSet<Widget> Widgets { get; set; }
     
         public virtual int uspCogs_Delete(Nullable<int> id)
         {
@@ -51,16 +48,7 @@ namespace SoaDemo.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cog>("uspCogs_Get", idParameter);
         }
     
-        public virtual ObjectResult<Cog> uspCogs_Get(Nullable<int> id, MergeOption mergeOption)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cog>("uspCogs_Get", mergeOption, idParameter);
-        }
-    
-        public virtual int uspCogs_Insert(string name, string description)
+        public virtual ObjectResult<Nullable<decimal>> uspCogs_Insert(string name, string description)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -70,7 +58,7 @@ namespace SoaDemo.Data
                 new ObjectParameter("Description", description) :
                 new ObjectParameter("Description", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspCogs_Insert", nameParameter, descriptionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("uspCogs_Insert", nameParameter, descriptionParameter);
         }
     
         public virtual int uspCogs_Update(Nullable<int> id, string name, string description)
@@ -108,16 +96,7 @@ namespace SoaDemo.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sprocket>("uspSprockets_Get", idParameter);
         }
     
-        public virtual ObjectResult<Sprocket> uspSprockets_Get(Nullable<int> id, MergeOption mergeOption)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sprocket>("uspSprockets_Get", mergeOption, idParameter);
-        }
-    
-        public virtual int uspSprockets_Insert(string name, string description)
+        public virtual ObjectResult<Nullable<decimal>> uspSprockets_Insert(string name, string description)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -127,7 +106,7 @@ namespace SoaDemo.Data
                 new ObjectParameter("Description", description) :
                 new ObjectParameter("Description", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspSprockets_Insert", nameParameter, descriptionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("uspSprockets_Insert", nameParameter, descriptionParameter);
         }
     
         public virtual int uspSprockets_Update(Nullable<int> id, string name, string description)
@@ -165,16 +144,7 @@ namespace SoaDemo.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Widget>("uspWidgets_Get", idParameter);
         }
     
-        public virtual ObjectResult<Widget> uspWidgets_Get(Nullable<int> id, MergeOption mergeOption)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Widget>("uspWidgets_Get", mergeOption, idParameter);
-        }
-    
-        public virtual int uspWidgets_Insert(string name, string description, Nullable<System.DateTime> lastUpdatedDate)
+        public virtual ObjectResult<Nullable<decimal>> uspWidgets_Insert(string name, string description, Nullable<System.DateTime> lastUpdatedDate)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -188,7 +158,7 @@ namespace SoaDemo.Data
                 new ObjectParameter("LastUpdatedDate", lastUpdatedDate) :
                 new ObjectParameter("LastUpdatedDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspWidgets_Insert", nameParameter, descriptionParameter, lastUpdatedDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("uspWidgets_Insert", nameParameter, descriptionParameter, lastUpdatedDateParameter);
         }
     
         public virtual int uspWidgets_Update(Nullable<int> id, string name, string description, Nullable<System.DateTime> lastUpdatedDate)

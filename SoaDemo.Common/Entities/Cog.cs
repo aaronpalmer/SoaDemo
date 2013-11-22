@@ -10,12 +10,19 @@
 namespace SoaDemo.Common.Entities
 {
     using System;
-    using System.Collections.Generic;
     
     public partial class Cog
     {
+    	public Cog(Cog entity) {
+    		Id = entity.Id;
+    		Name = entity.Name;
+    		Description = entity.Description;
+    		ProgramCodes = entity.ProgramCodes;
+    	}
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string ProgramCodes { get; set; }
     }
 }

@@ -14,6 +14,8 @@ namespace SoaDemo.Business.Entities
             Description = cogDto.Description;
         }
 
+
+
         // method to generate a dto from the object
         public CogDto GenerateDto()
         {

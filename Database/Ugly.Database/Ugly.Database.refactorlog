@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="ccfda55a-f05a-4c95-b51c-2223d4884463" ChangeDateTime="11/21/2013 23:21:24">
+    <Property Name="ElementName" Value="[dbo].[UberTable].[InitialDescription]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UberTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InitialDesc" />
+  </Operation>
+</Operations>

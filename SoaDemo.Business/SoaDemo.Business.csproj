@@ -57,6 +57,10 @@
       <Project>{e6f8573e-f3f5-4992-b80e-7bfdbe535fb5}</Project>
       <Name>SoaDemo.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SoaDemo.Data\SoaDemo.Data.csproj">
+      <Project>{db6e846a-cfc6-46bb-b55f-1dd1d318c8bb}</Project>
+      <Name>SoaDemo.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

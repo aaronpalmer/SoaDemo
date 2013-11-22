@@ -146,6 +146,19 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
     var simpleProperties = typeMapper.GetSimpleProperties(complex);
     if (simpleProperties.Any())
     {
+#>
+	public <#=code.Escape(complex)#>(<#=code.Escape(complex)#> entity) {
+<#
+        foreach(var edmProperty in simpleProperties)
+        {
+#>
+		<#=code.Escape(edmProperty)#> = entity.<#=code.Escape(edmProperty)#>;
+<#
+        }
+#>
+	}
+
+<#
         foreach(var edmProperty in simpleProperties)
         {
 #>

@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>SoaDemo.Database</Name>
+    <Name>Ugly.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{d4b2551f-292d-4383-8701-f02384596651}</ProjectGuid>
+    <ProjectGuid>{60494e09-7c01-4ab9-9f9e-d6e2407a3f4e}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>SoaDemo.Database</RootNamespace>
-    <AssemblyName>SoaDemo.Database</AssemblyName>
+    <RootNamespace>Ugly.Database</RootNamespace>
+    <AssemblyName>Ugly.Database</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -22,7 +22,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <GenerateCreateScript>True</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,30 +55,15 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Sprocs" />
-    <Folder Include="PostDeployment" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Cogs.sql" />
-    <Build Include="Tables\Sprockets.sql" />
-    <Build Include="Tables\Widgets.sql" />
-    <Build Include="Sprocs\uspCogs_Get.sql" />
-    <Build Include="Sprocs\uspWidgets_Get.sql" />
-    <Build Include="Sprocs\uspSprockets_Get.sql" />
-    <Build Include="Sprocs\uspCogs_Insert.sql" />
-    <Build Include="Sprocs\uspWidgets_Insert.sql" />
-    <Build Include="Sprocs\uspSprockets_Insert.sql" />
-    <Build Include="Sprocs\uspCogs_Update.sql" />
-    <Build Include="Sprocs\uspSprockets_Update.sql" />
-    <Build Include="Sprocs\uspWidgets_Update.sql" />
-    <Build Include="Sprocs\uspCogs_Delete.sql" />
-    <Build Include="Sprocs\uspSprockets_Delete.sql" />
-    <Build Include="Sprocs\uspWidgets_Delete.sql" />
-    <PostDeploy Include="PostDeployment\RefreshData.sql" />
+    <Build Include="Tables\UberTable.sql" />
+    <Build Include="Sprocs\uspInitial_Get.sql" />
+    <Build Include="Sprocs\uspInitial_Insert.sql" />
+    <Build Include="Sprocs\uspInitial_Update.sql" />
+    <Build Include="Sprocs\uspInitial_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="SoaDemo.Database.refactorlog" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SoaDemo.Database.publish.xml" />
+    <RefactorLog Include="Ugly.Database.refactorlog" />
   </ItemGroup>
 </Project>

@@ -10,10 +10,16 @@
 namespace SoaDemo.Common.Entities
 {
     using System;
-    using System.Collections.Generic;
     
     public partial class Widget
     {
+    	public Widget(Widget entity) {
+    		Id = entity.Id;
+    		Name = entity.Name;
+    		Description = entity.Description;
+    		LastUpdatedDate = entity.LastUpdatedDate;
+    	}
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
