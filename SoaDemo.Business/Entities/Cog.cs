@@ -1,25 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using SoaDemo.Common.DTOs;
+using System.Linq;
+using System.Xml.Linq;
+using SoaDemo.Data.Common;
 
 namespace SoaDemo.Business.Entities
 {
-    public class Cog : Common.Entities.Cog, IValidatableObject
+    public class Cog : DbCog, IValidatableObject
     {
-        // constructor to build object based on dto
-        public Cog(CogDto cogDto)
+
+        public List<string> ProgramCodesList
         {
-            Id = cogDto.Id;
-            Name = cogDto.Name;
-            Description = cogDto.Description;
-        }
-
-
-
-        // method to generate a dto from the object
-        public CogDto GenerateDto()
-        {
-            return new CogDto {Id = Id, Name = Name, Description = Description};
+            get { return (new XElement(ProgramCodes)).Descendants("Code").Select(node => node.Value).ToList(); }
         }
 
         // entity validation

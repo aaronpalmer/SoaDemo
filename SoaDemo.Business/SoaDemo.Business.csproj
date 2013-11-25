@@ -30,7 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -44,25 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assembler.cs" />
     <Compile Include="Entities\Cog.cs" />
     <Compile Include="Entities\Sprocket.cs" />
     <Compile Include="Entities\Widget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoaDemo.Common\SoaDemo.Common.csproj">
-      <Project>{e6f8573e-f3f5-4992-b80e-7bfdbe535fb5}</Project>
-      <Name>SoaDemo.Common</Name>
+    <ProjectReference Include="..\SoaDemo.Data.Common\SoaDemo.Data.Common.csproj">
+      <Project>{77772d7d-2ec1-4386-a495-f6a8b104e091}</Project>
+      <Name>SoaDemo.Data.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoaDemo.Data\SoaDemo.Data.csproj">
-      <Project>{db6e846a-cfc6-46bb-b55f-1dd1d318c8bb}</Project>
-      <Name>SoaDemo.Data</Name>
+    <ProjectReference Include="..\SoaDemo.Service.Common\SoaDemo.Service.Common.csproj">
+      <Project>{94467d92-991f-4c3b-aa70-1371f509edf5}</Project>
+      <Name>SoaDemo.Service.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

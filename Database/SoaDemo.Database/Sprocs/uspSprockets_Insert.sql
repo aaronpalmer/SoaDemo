@@ -1,8 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[uspSprockets_Insert]
 	@Name varchar(50),
-	@Description varchar(50)
+	@Description varchar(50),
+	@NewId int output
 AS
 
 insert into [Sprockets] ([Name], [Description]) values (@Name, @Description)
 
-select SCOPE_IDENTITY() as [Id]
+set @NewId = SCOPE_IDENTITY()
