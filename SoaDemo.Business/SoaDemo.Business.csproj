@@ -11,6 +11,10 @@
     <AssemblyName>SoaDemo.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assembler.cs" />
+    <Compile Include="ProductAssembler.cs" />
     <Compile Include="Entities\Cog.cs" />
     <Compile Include="Entities\Sprocket.cs" />
     <Compile Include="Entities\Widget.cs" />
@@ -56,13 +60,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoaDemo.Data.Common\SoaDemo.Data.Common.csproj">
-      <Project>{77772d7d-2ec1-4386-a495-f6a8b104e091}</Project>
-      <Name>SoaDemo.Data.Common</Name>
+    <ProjectReference Include="..\SoaDemo.Data\SoaDemo.Data.csproj">
+      <Project>{db6e846a-cfc6-46bb-b55f-1dd1d318c8bb}</Project>
+      <Name>SoaDemo.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoaDemo.Service.Common\SoaDemo.Service.Common.csproj">
-      <Project>{94467d92-991f-4c3b-aa70-1371f509edf5}</Project>
-      <Name>SoaDemo.Service.Common</Name>
+    <ProjectReference Include="..\SoaDemo.Services.Common\SoaDemo.Services.Common.csproj">
+      <Project>{6E237067-A224-40A7-ACA5-5DB137E11E61}</Project>
+      <Name>SoaDemo.Services.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

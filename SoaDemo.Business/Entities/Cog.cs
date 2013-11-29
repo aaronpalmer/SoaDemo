@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Xml.Linq;
-using SoaDemo.Data.Common;
+using SoaDemo.Data;
 
 namespace SoaDemo.Business.Entities
 {
@@ -11,7 +12,10 @@ namespace SoaDemo.Business.Entities
 
         public List<string> ProgramCodesList
         {
-            get { return (new XElement(ProgramCodes)).Descendants("Code").Select(node => node.Value).ToList(); }
+            get
+            {
+                return (XElement.Parse(ProgramCodes)).Descendants("Code").Where(x => !String.IsNullOrEmpty(x.Value)).Select(node => node.Value).ToList();
+            }
         }
 
         // entity validation
@@ -21,10 +25,15 @@ namespace SoaDemo.Business.Entities
 
             // put validation logic here
 
-            // we can also do stuff like this...
-            Validator.TryValidateProperty(Name, new ValidationContext(this, null, null) { MemberName = "Name" }, results);
+            if (Name == "error" || Name == "blah")
+            {
+                results.Add(new ValidationResult(string.Format("Name cannot be: '{0}'", Name)));
+            }
 
             return results;
         }
+
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using SoaDemo.Data.Common;
+using SoaDemo.Data;
 
 namespace SoaDemo.Business.Entities
 {

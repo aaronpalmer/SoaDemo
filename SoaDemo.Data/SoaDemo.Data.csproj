@@ -11,6 +11,10 @@
     <AssemblyName>SoaDemo.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,7 +50,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbCog.cs">
+      <DependentUpon>SoaDemoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbSprocket.cs">
+      <DependentUpon>SoaDemoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbWidget.cs">
+      <DependentUpon>SoaDemoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoaDemoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoaDemoModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoaDemoModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoaDemoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SoaDemoModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,7 +83,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SoaDemoModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="SoaDemoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SoaDemoModel.Context.cs</LastGenOutput>
+      <DependentUpon>SoaDemoModel.edmx</DependentUpon>
+    </None>
     <None Include="SoaDemoModel.edmx.diagram">
+      <DependentUpon>SoaDemoModel.edmx</DependentUpon>
+    </None>
+    <None Include="SoaDemoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SoaDemoModel.cs</LastGenOutput>
       <DependentUpon>SoaDemoModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
